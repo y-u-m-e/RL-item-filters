@@ -148,7 +148,7 @@ type: stringlist
 label: Items
 group: HIGHLIGHT2
 */
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT2_ITEMS ["* rune"]
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT2_ITEMS []
 
 /*@ define:input:global_highlight
 type: stringlist
@@ -162,7 +162,8 @@ type: stringlist
 label: Items
 group: HIGHLIGHT4
 */
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS []
+//Highlight regex for any magic rune
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS ["* rune"]
 
 /*@ define:input:global_highlight
 type: style
@@ -176,7 +177,7 @@ type: style
 label: Style
 group: HIGHLIGHT2
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE textColor = "#ff280061";backgroundColor = "#87716b40";borderColor = "#ff070707";textAccentColor = "#ffffffff";menuTextColor = "#ff280061";tileStrokeColor = "#ff280061";textAccent = 3;fontType = 2;showDespawn = true;highlightTile = true;
+#define VAR_HHGROUP_STYLE_HIGHLIGHT3_STYLE 
 
 /*@ define:input:global_highlight
 type: style
@@ -190,7 +191,8 @@ type: style
 label: Style
 group: HIGHLIGHT4
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE 
+//Highlight style for any magic rune
+#define VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE textColor = "#ff280061";backgroundColor = "#87716b40";borderColor = "#ff070707";textAccentColor = "#ffffffff";menuTextColor = "#ff280061";tileStrokeColor = "#ff280061";textAccent = 3;fontType = 2;showDespawn = true;highlightTile = true;
 
 
 rule (VAR_HHGROUP_BOOLEAN_HIGHLIGHT1_ENABLED && name:VAR_HHGROUP_STRINGLIST_HIGHLIGHT1_ITEMS) {
