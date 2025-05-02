@@ -161,7 +161,6 @@ group: HIGHLIGHT3
 type: stringlist
 label: Items
 group: HIGHLIGHT4
-//Highlight regex for any magic rune
 */
 #define VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS ["* rune"]
 
@@ -190,7 +189,6 @@ group: HIGHLIGHT3
 type: style
 label: Style
 group: HIGHLIGHT4
-//Highlight style for any magic rune
 */
 #define VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE textColor = "#ff280061";backgroundColor = "#87716b40";borderColor = "#ff070707";textAccentColor = "#ffffffff";menuTextColor = "#ff280061";tileStrokeColor = "#ff280061";textAccent = 3;fontType = 2;showDespawn = true;highlightTile = true;
 
