@@ -3,11 +3,15 @@ name: y u m e's item filer
 */
 // For docs visit https://github.com/Kaqemeex/loot-filters-ui/blob/main/module-system-docs/modular-filters-book/Readme.md
 
+
+
 /*@ define:module:header
 hidden: true
 name: header
 */
 meta { name = "y u m e/itemfilter"; description = "y u m e's item filer"; }
+
+
 
 
 
@@ -37,6 +41,8 @@ description: |
 #define LIB_HIDE1(_name) rule (name:_name && quantity:==1) { hidden = true; }
 #define LIB_DARK_BG(_name, _color) rule (name:_name) { color = _color; borderColor = _color; backgroundColor = BLACK; }
 #define LIB_TEXT_HIGHLIGHT(_name, _color) rule (name:_name) { color = _color; textAccent = 2; }
+
+
 
 
 
@@ -87,6 +93,8 @@ rule (VAR_OWNERSHIP_HIDESPAWN && ownership:0 && !name:VAR_OWNERSHIP_IGNORE) {
 
 
 
+
+
 /*@ define:module:defaults
 ---
 name: Defaults
@@ -98,11 +106,13 @@ description: |
 type: style
 label: Default style
 */
-#define VAR_DEFAULTS_STYLE 
+#define VAR_DEFAULTS_STYLE textColor = "#4f000000";menuTextColor = "#ffffffff";textAccent = 3;fontType = 1;
 
 apply (true) {
   VAR_DEFAULTS_STYLE
 }
+
+
 
 
 
@@ -139,63 +149,51 @@ type: boolean
 label: Enabled
 group: HIGHLIGHT4
 */
-#define VAR_HHGROUP_BOOLEAN_HIGHLIGHT4_ENABLED false
+#define VAR_HHGROUP_BOOLEAN_HIGHLIGHT4_ENABLED true
 
-/*@ define:input:global_highlight
-type: stringlist
-label: Items
-group: HIGHLIGHT1
-*/
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT1_ITEMS ["* bar","* ore"]
+// =======================
+// Late-game iron highlights
+// =======================
 
-/*@ define:input:global_highlight
-type: stringlist
-label: Items
-group: HIGHLIGHT2
-*/
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT2_ITEMS ["* rune"]
+// --- H1: Endgame sustain / always-grab
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT1_ITEMS ["Blood rune", "Soul rune", "Death rune", "Dragon arrow", "Dragon dart", "Dragon dart tip", "Onyx bolt tips", "Runite bolts", "Uncut dragonstone", "Grimy ranarr weed", "Grimy snapdragon", "Grimy torstol", "Ranarr weed", "Snapdragon", "Torstol"]
 
-/*@ define:input:global_highlight
-type: stringlist
-label: Items
-group: HIGHLIGHT3
-*/
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT3_ITEMS ["Ensouled*","red spiders' eggs"]
+// --- H2: Upkeep / commonly consumed
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT2_ITEMS [ "Nature rune", "Law rune", "Chaos rune", "Astral rune", "Cosmic rune", "Rune bar", "Adamantite bar", "Battlestaff", "Crystal key"]
 
-/*@ define:input:global_highlight
-type: stringlist
-label: Items
-group: HIGHLIGHT4
-*/
-#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS []
+// --- H3: Secondaries that save you farm runs
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT3_ITEMS [" "]
+
+// --- H4: Premium seeds only (no '* seed' wildcard)
+#define VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS [ "Ranarr seed", "Snapdragon seed", "Torstol seed", "Toadflax seed", "Avantoe seed", "Dwarf weed seed", "Lantadyme seed","Limpwurt root", "Snape grass", "Wine of zamorak", "Mort myre fungus", "White berries", "Potato cactus", "Blue dragon scale", "Red spiders' eggs"]
 
 /*@ define:input:global_highlight
 type: style
 label: Style
 group: HIGHLIGHT1
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT1_STYLE textColor = "#ff30f691";backgroundColor = "#8fb8e6e6";borderColor = "#ff000000";textAccentColor = "#ff000000";lootbeamColor = "#ff30f691";menuTextColor = "#ff30f691";tileStrokeColor = "#ff30f691";textAccent = 4;showLootbeam = false;notify = false;highlightTile = true;menuSort = 1;
+#define VAR_HHGROUP_STYLE_HIGHLIGHT1_STYLE textColor = "#ffde8b67";backgroundColor = "#c9947c62";borderColor = "#ff8c1d1d";textAccentColor = "#ff000000";lootbeamColor = "#ffde8b67";menuTextColor = "#ffde8b67";tileStrokeColor = "#ffde8b67";textAccent = 4;fontType = 1;showLootbeam = false;showDespawn = true;notify = false;highlightTile = true;sound = 0;menuSort = 3;
 
 /*@ define:input:global_highlight
 type: style
 label: Style
 group: HIGHLIGHT2
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE textColor = "#ffd2acf8";backgroundColor = "#87716b40";borderColor = "#d16c0af5";textAccentColor = "#ff3f1f61";menuTextColor = "#ffd2acf8";tileStrokeColor = "#d16c0af5";textAccent = 1;fontType = 2;showDespawn = true;highlightTile = true;menuSort = 2;
+#define VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE textColor = "#ff53948c";backgroundColor = "#d1595858";borderColor = "#ff000000";textAccentColor = "#ff000000";lootbeamColor = "#ff30f691";menuTextColor = "#ff53948c";tileStrokeColor = "#ff53948c";textAccent = 1;fontType = 1;showLootbeam = false;showDespawn = true;notify = false;highlightTile = true;sound = 0;menuSort = 1;
 
 /*@ define:input:global_highlight
 type: style
 label: Style
 group: HIGHLIGHT3
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT3_STYLE textColor = "#b5fd5555";backgroundColor = "#87716b40";borderColor = "#ff8c1d1d";textAccentColor = "#ffffffff";menuTextColor = "#b5fd5555";tileStrokeColor = "#b5fd5555";textAccent = 3;fontType = 2;showDespawn = true;highlightTile = true;menuSort = 3;
+#define VAR_HHGROUP_STYLE_HIGHLIGHT3_STYLE textColor = "#fffc5656";backgroundColor = "#ff43310b";borderColor = "#ff6f1010";textAccentColor = "#ff000000";lootbeamColor = "#fffc5656";menuTextColor = "#b5fd5555";tileStrokeColor = "#fffc5656";textAccent = 4;fontType = 3;showLootbeam = true;showDespawn = true;highlightTile = true;sound = 0;menuSort = 3;
 
 /*@ define:input:global_highlight
 type: style
 label: Style
 group: HIGHLIGHT4
 */
-#define VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE 
+#define VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE textColor = "#ff3d803e";backgroundColor = "#c9947c62";borderColor = "#ff000000";textAccentColor = "#ff000000";lootbeamColor = "#ff30f691";menuTextColor = "#ff3d803e";tileStrokeColor = "#ff3d803e";textAccent = 1;fontType = 1;showLootbeam = false;showDespawn = true;notify = false;highlightTile = true;menuSort = 1;
 
 
 rule (VAR_HHGROUP_BOOLEAN_HIGHLIGHT1_ENABLED && name:VAR_HHGROUP_STRINGLIST_HIGHLIGHT1_ITEMS) {
@@ -210,8 +208,33 @@ rule (VAR_HHGROUP_BOOLEAN_HIGHLIGHT3_ENABLED && name:VAR_HHGROUP_STRINGLIST_HIGH
 rule (VAR_HHGROUP_BOOLEAN_HIGHLIGHT4_ENABLED && name:VAR_HHGROUP_STRINGLIST_HIGHLIGHT4_ITEMS) {
   VAR_HHGROUP_STYLE_HIGHLIGHT4_STYLE
 }
+// =======================
+// Quantity-gated highlights (must be after style #defines)
+// =======================
 
+// Put this near your global_hide / hide-by-default area or right before highlights
+rule (
+  name:["Air rune","Water rune","Earth rune","Fire rune","Mind rune","Body rune"]
+  && quantity:>=200
+) {
+  hidden = false;
 
+  VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE
+}
+
+rule (
+  name:["Mithril bar","Steel bar"]
+  && quantity:>=20
+) {
+  VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE
+}
+
+rule (
+  name:["Coal","Mithril ore","Adamantite ore"]
+  && quantity:>=30
+) {
+  VAR_HHGROUP_STYLE_HIGHLIGHT2_STYLE
+}
 
 
 
@@ -249,6 +272,8 @@ apply (name:VAR_HIDES_HIDEBYDEFAULT) {
 rule (name:VAR_HIDES_STRINGLIST__HIDE) {
   hidden = true;
 }
+
+
 
 
 
@@ -432,6 +457,8 @@ apply (VAR_JUNK_HIDE_UNIQUE_CLUE_MASTER && name:CONST_JUNK_UNIQUE_CLUE_MASTER) {
 
 
 
+
+
 /*@ define:module:bloodveld
 name: Bloodveld
 */
@@ -509,6 +536,8 @@ enum: ["Clue scroll (elite)","Reward casket (elite)","Looting bag","Ensouled blo
 CONST_BLOODVELD_RULE (name:VAR_BLOODVELD_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -605,6 +634,8 @@ CONST_NECHRYAEL_RULE (name:VAR_NECHRYAEL_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:vyre
 name: Vyre
 */
@@ -694,6 +725,8 @@ CONST_VYRE_RULE (name:VAR_VYRE_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:aberrantspectre
 name: Aberrant spectre
 */
@@ -723,6 +756,8 @@ enum: ["Coins"]
 CONST_ABERRANTSPECTRE_RULE (name:VAR_ABERRANTSPECTRE_ENUMLIST_FILTER_COINS) {
   hidden = true;
 }
+
+
 
 
 
@@ -792,6 +827,8 @@ enum: ["Brimstone key"]
 CONST_DUSTDEVIL_RULE (name:VAR_DUSTDEVIL_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -870,6 +907,8 @@ enum: ["Brimstone key"]
 CONST_SMOKEDEVIL_RULE (name:VAR_SMOKEDEVIL_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -965,6 +1004,8 @@ CONST_SKELETALWYVERN_RULE (name:VAR_SKELETALWYVERN_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:gargoyle
 name: Gargoyle
 */
@@ -1049,6 +1090,8 @@ enum: ["Brimstone key","Brittle key"]
 CONST_GARGOYLE_RULE (name:VAR_GARGOYLE_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -1148,6 +1191,8 @@ CONST_ABYSSALDEMON_RULE (name:VAR_ABYSSALDEMON_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:araxyte
 name: Araxyte
 */
@@ -1198,6 +1243,8 @@ enum: ["Coins","Araxyte head"]
 CONST_ARAXYTE_RULE (name:VAR_ARAXYTE_ENUMLIST_FILTER_OTHER) {
   hidden = true;
 }
+
+
 
 
 
@@ -1282,6 +1329,8 @@ CONST_SCURRIUS_RULE (name:VAR_SCURRIUS_ENUMLIST_FILTER_TERTIARYDROPS) {
 
 
 
+
+
 /*@ define:module:giantmole
 name: Giant Mole
 */
@@ -1343,6 +1392,8 @@ enum: ["Brimstone key","Long bone","Baby mole","Curved bone"]
 CONST_GIANTMOLE_RULE (name:VAR_GIANTMOLE_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -1432,6 +1483,8 @@ enum: ["Brimstone key"]
 CONST_DERANGEDARCHAEOLOGIST_RULE (name:VAR_DERANGEDARCHAEOLOGIST_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -1549,6 +1602,8 @@ CONST_DAGANNOTHKINGS_RULE (name:VAR_DAGANNOTHKINGS_ENUMLIST_FILTER_AMMUNITION) {
 
 
 
+
+
 /*@ define:module:sarachnis
 name: Sarachnis
 */
@@ -1643,6 +1698,8 @@ enum: ["Tattered moon page","Tattered sun page","Tattered temple page","Giant eg
 CONST_SARACHNIS_RULE (name:VAR_SARACHNIS_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -1749,6 +1806,8 @@ CONST_KALPHITEQUEEN_RULE (name:VAR_KALPHITEQUEEN_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:kreearra
 name: Kree'arra
 */
@@ -1832,6 +1891,8 @@ enum: ["Steel arrow","Steel dart","Smoke rune","Manta ray","Mushroom potato"]
 CONST_KREEARRA_RULE (name:VAR_KREEARRA_ENUMLIST_FILTER_FOODANDAMMUNITION) {
   hidden = true;
 }
+
+
 
 
 
@@ -1927,6 +1988,8 @@ CONST_COMMANDERZILYANA_RULE (name:VAR_COMMANDERZILYANA_ENUMLIST_FILTER_FOODANDAM
 
 
 
+
+
 /*@ define:module:generalgraardor
 name: General Graardor
 */
@@ -1999,6 +2062,8 @@ enum: ["Steel arrow","Steel dart","Nature rune","Cosmic rune","Shark","Chilli po
 CONST_GENERALGRAARDOR_RULE (name:VAR_GENERALGRAARDOR_ENUMLIST_FILTER_FOODANDAMMUNITION) {
   hidden = true;
 }
+
+
 
 
 
@@ -2094,6 +2159,8 @@ CONST_KRILTSUTSAROTH_RULE (name:VAR_KRILTSUTSAROTH_ENUMLIST_FILTER_RUNESANDAMMUN
 
 
 
+
+
 /*@ define:module:thehueycoatl
 name: The Hueycoatl
 */
@@ -2183,6 +2250,8 @@ CONST_THEHUEYCOATL_RULE (name:VAR_THEHUEYCOATL_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:corporealbeast
 name: Corporeal Beast
 */
@@ -2244,6 +2313,8 @@ enum: ["Jar of spirits","Pet dark core"]
 CONST_CORPOREALBEAST_RULE (name:VAR_CORPOREALBEAST_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -2339,6 +2410,8 @@ CONST_NEX_RULE (name:VAR_NEX_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:chaosfanatic
 name: Chaos Fanatic
 */
@@ -2422,6 +2495,8 @@ enum: ["Looting bag","Brimstone key","Pet chaos elemental"]
 CONST_CHAOSFANATIC_RULE (name:VAR_CHAOSFANATIC_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -2517,6 +2592,8 @@ CONST_CRAZYARCHAEOLOGIST_RULE (name:VAR_CRAZYARCHAEOLOGIST_ENUMLIST_FILTER_TERTI
 
 
 
+
+
 /*@ define:module:scorpia
 name: Scorpia
 */
@@ -2606,6 +2683,8 @@ CONST_SCORPIA_RULE (name:VAR_SCORPIA_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:kingblackdragon
 name: King Black Dragon
 */
@@ -2689,6 +2768,8 @@ enum: ["Key (elite)","Brimstone key","Kbd heads","Prince black dragon","Draconic
 CONST_KINGBLACKDRAGON_RULE (name:VAR_KINGBLACKDRAGON_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -2795,6 +2876,8 @@ CONST_CHAOSELEMENTAL_RULE (name:VAR_CHAOSELEMENTAL_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:vetion
 name: Vet'ion
 */
@@ -2895,6 +2978,8 @@ CONST_VETION_RULE (name:VAR_VETION_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:venenatis
 name: Venenatis
 */
@@ -2989,6 +3074,8 @@ enum: ["Looting bag","Strange fruit","Brimstone key","Long bone","Venenatis spid
 CONST_VENENATIS_RULE (name:VAR_VENENATIS_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -3106,6 +3193,8 @@ CONST_CALLISTO_RULE (name:VAR_CALLISTO_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:amoxliatl
 name: Amoxliatl
 */
@@ -3167,6 +3256,8 @@ enum: ["Clue scroll (elite)","Reward casket (elite)","Pendant of ates (inert)","
 CONST_AMOXLIATL_RULE (name:VAR_AMOXLIATL_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -3295,6 +3386,8 @@ CONST_ZULRAH_RULE (name:VAR_ZULRAH_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:vorkath
 name: Vorkath
 */
@@ -3388,6 +3481,8 @@ enum: ["Scaly blue dragonhide","Vorkath's head","Brimstone key","Dragonbone neck
 CONST_VORKATH_RULE (name:VAR_VORKATH_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -3505,6 +3600,8 @@ CONST_PHANTOMMUSPAH_RULE (name:VAR_PHANTOMMUSPAH_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:thenightmare
 name: The Nightmare
 */
@@ -3588,6 +3685,8 @@ enum: ["Little nightmare","Jar of dreams"]
 CONST_THENIGHTMARE_RULE (name:VAR_THENIGHTMARE_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -3683,6 +3782,8 @@ CONST_DUKESUCELLUS_RULE (name:VAR_DUKESUCELLUS_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:theleviathan
 name: The Leviathan
 */
@@ -3755,6 +3856,8 @@ enum: ["Brimstone key","Clue scroll (easy)","Clue scroll (medium)","Clue scroll 
 CONST_THELEVIATHAN_RULE (name:VAR_THELEVIATHAN_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -3850,6 +3953,8 @@ CONST_THEWHISPERER_RULE (name:VAR_THEWHISPERER_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:vardorvis
 name: Vardorvis
 */
@@ -3922,6 +4027,8 @@ enum: ["Temple key (Desert Treasure II)","Brimstone key","Clue scroll (easy)","C
 CONST_VARDORVIS_RULE (name:VAR_VARDORVIS_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -4017,6 +4124,8 @@ CONST_GROTESQUEGUARDIANS_RULE (name:VAR_GROTESQUEGUARDIANS_ENUMLIST_FILTER_TERTI
 
 
 
+
+
 /*@ define:module:abyssalsire
 name: Abyssal Sire
 */
@@ -4106,6 +4215,8 @@ CONST_ABYSSALSIRE_RULE (name:VAR_ABYSSALSIRE_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:kraken
 name: Kraken
 */
@@ -4184,6 +4295,8 @@ CONST_KRAKEN_RULE (name:VAR_KRAKEN_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:cerberus
 name: Cerberus
 */
@@ -4256,6 +4369,8 @@ enum: ["Ensouled hellhound head","Brimstone key","Jar of souls","Hellpuppy"]
 CONST_CERBERUS_RULE (name:VAR_CERBERUS_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -4362,6 +4477,8 @@ CONST_ARAXXOR_RULE (name:VAR_ARAXXOR_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:thermonuclearsmokedevil
 name: Thermonuclear smoke devil
 */
@@ -4445,6 +4562,8 @@ enum: ["Brimstone key","Jar of smoke","Pet smoke devil"]
 CONST_THERMONUCLEARSMOKEDEVIL_RULE (name:VAR_THERMONUCLEARSMOKEDEVIL_ENUMLIST_FILTER_TERTIARY) {
   hidden = true;
 }
+
+
 
 
 
@@ -4540,6 +4659,8 @@ CONST_ALCHEMICALHYDRA_RULE (name:VAR_ALCHEMICALHYDRA_ENUMLIST_FILTER_TERTIARY) {
 
 
 
+
+
 /*@ define:module:cox
 ---
 name: CoX
@@ -4591,6 +4712,8 @@ rule (name:"xeric's aid*") {
 
 
 
+
+
 /*@ define:module:toa
 ---
 name: ToA
@@ -4636,6 +4759,8 @@ rule (name:"nectar*") {
 rule (name:"tears of elidinis*") {
   VAR_TOA_TOE_USERSTYLE
 }
+
+
 
 
 
@@ -4903,6 +5028,8 @@ rule (name:"Urium remains") { VAR_SOM_URIUM_STYLE }
 
 
 
+
+
 /*@ define:module:defender
 name: Defenders
 */
@@ -4932,6 +5059,8 @@ rule (name:VAR_DEFENDER_EQUIP_DEFENDER_LIST) { hidden = false; VAR_DEFENDER_EQUI
 
 
 
+
+
 /*@ define:module:uniques
 ---
 name: Uniques
@@ -4942,7 +5071,7 @@ type: stringlist
 label: S-Tier uniques.
 group: s-tier-unique
 */
-#define VAR_UNIQUE_STIER ["Infernal cape","Fire cape","Dizana's quiver*","Unsired","Ancient blood ornament kit","Ultor vestige","Venator vestige","Bellator vestige","Magus vestige","Executioner's axe head","Leviathan's lure","Siren's staff","Eye of the duke","Slepey tablet","*max cape","*mutagen","*champion scroll"]
+#define VAR_UNIQUE_STIER ["Infernal cape","Fire cape","Dizana's quiver*","Unsired","Ancient blood ornament kit","Ultor vestige","Venator vestige","Bellator vestige","Magus vestige","Executioner's axe head","Leviathan's lure","Siren's staff","Eye of the duke","Slepey tablet","*max cape","*mutagen","*champion scroll","Dragon nails","Dragon metal sheet","Dragon Cannonball","Dragon nails","Dragon metal sheet","Dragon Cannonball"]
 
 /*@ define:input:uniques
 type: stringlist
@@ -5018,6 +5147,8 @@ rule (name:VAR_UNIQUE_CTIER) {
 
 
 
+
+
 /*@ define:module:potions
 ---
 name: Potions
@@ -5075,6 +5206,8 @@ CONST_POTION_HIGHLIGHT("sanfew serum*", "#e59e9e", VAR_POTION_SANFEW_USERSTYLE)
 CONST_POTION_HIGHLIGHT("*super combat potion*", "#2a9e16", VAR_POTION_SUPERCOMBAT_USERSTYLE)
 CONST_POTION_HIGHLIGHT("*ranging potion*", "#5fb7da", VAR_POTION_RANGE_USERSTYLE)
 CONST_POTION_HIGHLIGHT("*bastion potion*", "#db721c", VAR_POTION_BASTION_USERSTYLE)
+
+
 
 
 
@@ -5158,6 +5291,8 @@ rule (name:["clue scroll (elite)", "reward casket (elite)", "challenge scroll (e
 rule (name:["clue scroll (master)", "reward casket (master)", "challenge scroll (master)"]) {
   VAR_CLUE_MASTER_CUSTOMSTYLE
 }
+
+
 
 
 
@@ -5255,6 +5390,8 @@ rule (noted:false && name:CONST_HERB_HERBS) {}
 
 
 
+
+
 /*@ define:module:currency_/_tokens
 ---
 name: Currency / Tokens
@@ -5277,6 +5414,8 @@ label: Display
 apply (name:VAR_CURRENCY_ITEMS) {
   VAR_CURRENCY_USERSTYLE
 }
+
+
 
 
 
